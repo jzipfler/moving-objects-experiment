@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import { Spring, config, Transition } from 'react-spring'
 import logo from './logo.svg';
+import styled from 'styled-components';
 import './App.css';
+
+const Box = styled.div`
+  position: absolute;
+  border-radius: 10%;
+  border: 1px solid grey;
+  width: 100px;
+  height: 100px;
+`;
+
+const MovingBox = styled(Box)`
+  background-color: red;
+  opacity: 0.4;
+  z-index: 1;
+`;
 
 interface State {
   from: number;
@@ -35,52 +50,21 @@ class App extends Component<{}, State> {
               width: "500px"
             }}
           >
-            <div
-              id={"left"}
-              style={{
-                position: "absolute",
-                left: 0,
-                borderRadius: "10%",
-                border: "1px solid grey",
-                width: "100px",
-                height: "100px"
-              }}
-            />
+            <Box style={{left: 0}} />
 
             
             <Spring from={{ left: from }} to={{ left: to }} config={config.slow}>
               {(props) => {
                 return (
-                  <div
-                    id={"left"}
+                  <MovingBox
+                    style={{...props}}
                     onClick={this.handleOnClick}
-                    style={{
-                      ...props,
-                      position: "absolute",
-                      backgroundColor: "red",
-                      border: "1px solid grey",
-                      borderRadius: "10%",
-                      opacity: 0.4,
-                      width: "100px",
-                      height: "100px",
-                      zIndex: 1
-                    }}
                   />
                 )
               }}
             </Spring>
             
-            <div
-              id={"right"}
-              style={{
-                position: "absolute",
-                left: 400,
-                borderRadius: "10%",
-                border: "1px solid grey",
-                width: "100px",
-                height: "100px"
-              }}
-            />
+            <Box style={{left: 400}} />
           </div>
         </header>
       </div>

@@ -28,8 +28,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/styled-components": "^4.0.3",
     "konva": "^2.5.0",
     "react-konva": "^16.6.0",
-    "react-spring": "^6.1.6"
+    "react-spring": "^6.1.6",
+    "styled-components": "^4.0.3"
   }
 }
