@@ -23,6 +23,10 @@ const MovingBox = styled(Box)`
   }
 `;
 
+const Instruction = styled.label`
+  padding-bottom: 50px;
+`;
+
 interface State {
   from: number;
   to: number;
@@ -49,6 +53,9 @@ class App extends Component<{}, State> {
     return (
       <div className="App">
         <header className="App-header">
+        <Instruction>
+          Click on the div to let it move from one box to another.
+        </Instruction>
           <div
             style={{
               position: "relative",
