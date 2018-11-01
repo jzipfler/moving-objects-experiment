@@ -16,6 +16,11 @@ const MovingBox = styled(Box)`
   background-color: red;
   opacity: 0.4;
   z-index: 1;
+
+  &:hover:after {
+      content: 'click me'
+    }
+  }
 `;
 
 interface State {
